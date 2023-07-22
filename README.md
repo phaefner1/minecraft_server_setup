@@ -1,2 +1,2 @@
-# minecraft_server_setup
-script to setup a minecraft server for any version in just a few seconds
+# minecraft server setup
+script to setup a minecraft server for "any" version in just a few seconds
