@@ -182,10 +182,10 @@ create_eula() {
 #
 server_boot() {
 	echo -e "${dark_blue}\n\nServer ready for bootup.${reset}"
-	read -p "Continue with server boot? (y/n): "
+	read -p "Continue with server boot? (y/n): " confirm
 	if [[ "$confirm" == [yY] || "$confirm" == [yY][eE][sS] ]]; then
     		echo -e "${green}Starting server..${reset}"
-		/bin/bash start.sh 
+		./start.sh 
 	else
 		rm $lockfile
 		exit
