@@ -198,7 +198,7 @@ create_startsh() {
 	server_name=$(echo "${server_name}" | sed 's/[^a-zA-Z0-9]//g')
 	
 	echo -e "${dark_blue}\nStarting creation of start.sh${reset}"
-	echo "screen -S $server_name java -Xms${chosen_ram}G -Xmx${chosen_ram}G -jar Spigot.jar" > start.sh
+	echo "screen -S $server_name /usr/lib/jvm/jre-11-openjdk/bin/java -Xms${chosen_ram}G -Xmx${chosen_ram}G -jar Spigot.jar" > start.sh
 	echo -e "${green}Successfully created start.sh.${reset}"
 	chmod 755 start.sh
 	echo -e "${green}Successfully set file permissions."
