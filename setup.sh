@@ -153,6 +153,42 @@ check_ram() {
 }
 
 
+# Check if Java 11 OpenJDK is installed
+#
+check_java() {
+    echo -e "\n${dark_blue}Checking for Java 11 OpenJDK installation..${reset}"
+    if command -v java >/dev/null 2>&1 && [ "$(java -version 2>&1 | awk -F[\"_] 'NR==1{print $2}')" = "11.0" ]; then
+        echo -e "${green}Java 11 OpenJDK is already installed.${reset}"
+    else
+        echo -e "${dark_blue}Java 11 OpenJDK is not installed. Starting installation...${reset}\n\n"
+        if [ -f /etc/os-release ]; then
+            . /etc/os-release
+            case $ID in
+            debian|ubuntu|linuxmint)
+                sudo apt-get update
+                sudo apt-get install -y openjdk-11-jdk
+            ;;
+            centos|fedora|rhel)
+                sudo yum install -y java-11-openjdk
+            ;;
+            suse|opensuse*)
+                sudo zypper install -y java-11-openjdk
+            ;;
+            arch|manjaro)
+                sudo pacman -Syu jdk11-openjdk
+            ;;
+            *)
+                echo -e "${red}Couldn't install 'java-11-openjdk'. Unknown Linux-Distribution.${reset}"
+                break
+            ;;
+            esac
+        else
+            echo -e "${red}Cancelling Java 11 OpenJDK installation. Couldn't find Linux-Distribution name.${reset}"
+        fi
+    fi
+}
+
+
 # Create start.sh
 #
 server_name="MinecraftServer"
@@ -201,6 +237,7 @@ main() {
 	jar_download
 	check_os
 	check_screen
+	check_java
 	check_ram
 	create_startsh
 	create_eula
