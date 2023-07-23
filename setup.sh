@@ -108,7 +108,7 @@ check_screen() {
                     		sudo apt-get update
                     		sudo apt-get install -y screen
                     	;;
-                	centos|fedora|rhel)
+                	centos|fedora|rhel|almalinux)
                     		sudo yum install -y screen
                     	;;
                 	suse|opensuse*)
@@ -168,7 +168,7 @@ check_java() {
                 sudo apt-get update
                 sudo apt-get install -y openjdk-11-jdk
             ;;
-            centos|fedora|rhel)
+            centos|fedora|rhel|almalinux)
                 sudo yum install -y java-11-openjdk
             ;;
             suse|opensuse*)
