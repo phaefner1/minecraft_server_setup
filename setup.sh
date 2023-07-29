@@ -56,7 +56,7 @@ set_lock() {
 #
 choose_version() {
     echo -e "\n${light_blue}Please select a Spigot Version:"
-    select version in spigot-1.7.9.jar spigot-1.8.jar spigot-1.9.jar spigot-1.10.jar spigot-1.11.jar spigot-1.12.jar spigot-1.13.jar spigot-1.14.jar spigot-1.15.jar spigot-1.16.jar spigot-1.17.jar spigot-1.18.jar spigot-1.19.jar; do
+    select version in spigot-1.7.9.jar spigot-1.8.jar spigot-1.9.jar spigot-1.10.jar spigot-1.11.jar spigot-1.12.jar spigot-1.13.jar spigot-1.14.jar spigot-1.15.jar spigot-1.16.jar spigot-1.17.jar spigot-1.18.jar spigot-1.19.jar spigot-1.20.jar; do
         echo -e "You selected  $version ${reset}"
         break
     done
