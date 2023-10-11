@@ -25,7 +25,7 @@
 # Description:
 # Automatically sets up a minecraft server on 
 # the version of your choice and starts it.
-#
+
 
 
 # Color Vars
